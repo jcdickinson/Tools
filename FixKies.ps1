@@ -11,10 +11,9 @@ function Fix-Kies()
     $configs = Get-ChildItem -Filter '*.exe.config' -Recurse
 
     foreach ($config in $configs)
-    {
-        Write-Host "Checking $path."
-            
+    {            
         $path = $config.DirectoryName + '\' + $config.Name
+        Write-Host "Checking $path."
         
         $save = 0
         $content = [xml](Get-Content $path)
