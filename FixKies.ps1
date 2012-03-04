@@ -21,8 +21,7 @@ function Fix-Kies()
         # Remove the supportedRuntime element if it's 4.0.    
         foreach ($runtime in $content.configuration.startup.supportedRuntime)
         {
-            $version = $runtime.version -eq 'v4.0'
-            if ($version)
+            if ($runtime.version -eq 'v4.0')
             {
                 $content.configuration.startup.RemoveChild($runtime)
                 $save = 1
